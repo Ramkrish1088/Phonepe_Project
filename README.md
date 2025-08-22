@@ -27,7 +27,7 @@ PhonePe has transformed India’s digital payments ecosystem. This project bring
 
 ✅ Dynamic filters for Year and Quarter-based exploration
 
-✅ Business Case Studies across six dimensions:
+✅ Business Case Studies across five dimensions:
         
         🔄 Transaction Flow & Dynamics
 
