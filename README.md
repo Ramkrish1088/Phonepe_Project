@@ -1,12 +1,15 @@
-**📊 PhonePe Pulse – Interactive Transactions Dashboard**
+**🖥️ PhonePe Pulse – Interactive Transactions Dashboard**
+----------------------------------------------------------
 
 An interactive analytics dashboard created using Streamlit, Plotly, and MySQL to visualize PhonePe Pulse transaction data across India. The platform enables users to explore digital payment trends, adoption patterns, and engagement insights at multiple geographic levels.
 
-**🧠 Project Summary**
+**🎯 Project Summary**
+-----------------------
 
 PhonePe has transformed India’s digital payments ecosystem. This project brings together its Pulse dataset into a user-friendly web app, helping uncover transaction dynamics, user behavior, and insurance growth trends across states, districts, and pincodes.
 
-****🔎 Core Capabilities****
+****💡 Core Capabilities****
+----------------------------
 
 **📈 Transaction Analysis** – Monitor transaction counts and values across time
 
@@ -16,7 +19,9 @@ PhonePe has transformed India’s digital payments ecosystem. This project bring
 
 **🗺 Geo-Visual Exploration** – Navigate data with interactive state & district maps
 
-🚀 **Features**
+
+**💎 Features**
+----------------
 
 ✅ Real-time interactive charts & maps powered by Plotly
 
@@ -38,12 +43,13 @@ PhonePe has transformed India’s digital payments ecosystem. This project bring
 ✅ Clean, branded, and responsive UI built with Streamlit
 
 **🛠 Tech Stack**
-| Tool            | Purpose                        |
-|-----------------|--------------------------------|
-| Python          | Backend Data Processing        |
-| MySQL           | Database for structured data   |
-| Streamlit       | Interactive Web App            |
-| Plotly          | Visualizations and Charts      |
-| GitHub          | Version Control & Deployment   |
+-----------------
 
+| Tool        | Purpose                        |
+|-------------|---------------------------------|
+| 🐍 Python    | Backend Data Processing         |
+| 🗃️ MySQL     | Database for Structured Data    |
+| 🌐 Streamlit | Interactive Web App             |
+| 📊 Plotly    | Visualizations and Charts       |
+| 🐙 GitHub    | Version Control & Deployment    |
 
