@@ -485,7 +485,7 @@ mydb=mysql.connector.connect(
 cursor = mydb.cursor()
 
 # Create Aggregate Transaction Table
-"""
+
 create_query1 = '''CREATE TABLE if not exists aggregate_transaction (States varchar(100),
                                                                    Years int,
                                                                    Quarter int,
@@ -717,11 +717,12 @@ for index, row in aggre_user.iterrows():
     )
     
     cursor.execute(insert_query_agg_user, values)
-    mydb.commit()  """  
+    mydb.commit()    
 
 
 
 
              
+
 
           
