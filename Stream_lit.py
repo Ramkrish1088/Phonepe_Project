@@ -242,8 +242,21 @@ elif section == "Business Case Study":
         """, tuple(params))
 
         if not df_total.empty:
-            st.metric("**🧑‍💻 Total Registered Users**", f"{int(df_total.iloc[0]['TotalUsers']):,}")
-            st.metric("**📱Total App Opens**", f"{int(df_total.iloc[0]['TotalOpens']):,}")
+            total_transactions = df_total.iloc[0].get('TotalTransactions')
+            total_amount = df_total.iloc[0].get('TotalAmount')
+
+            st.metric(
+                "Total Insurance Transactions",
+                f"{int(total_transactions):,}" if total_transactions is not None else "N/A"
+            )
+
+            st.metric(
+                "Total Insurance Amount (₹)",
+                f"{int(total_amount):,}" if total_amount is not None else "N/A"
+            )
+        else:
+            st.metric("Total Insurance Transactions", "N/A")
+            st.metric("Total Insurance Amount (₹)", "N/A")
 
         tab1, = st.tabs(["States"])
         with tab1:
@@ -500,6 +513,7 @@ elif section == "Case Study Dashboard":
     
        
         
+
 
 
 
