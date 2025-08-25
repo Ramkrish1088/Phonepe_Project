@@ -271,12 +271,12 @@ elif section == "Business Case Study":
 
             st.metric(
                 "Total Insurance Transactions",
-                f"{int(total_transactions):,}" if total_transactions is not None else "N/A"
+                f"{int(total_transactions):,}" if total_transactions is not None else "No Data Available"
             )
 
             st.metric(
                 "Total Insurance Amount (₹)",
-                f"{int(total_amount):,}" if total_amount is not None else "N/A"
+                f"{int(total_amount):,}" if total_amount is not None else "No Data Available"
             )
         else:
             st.metric("Total Insurance Transactions", "N/A")
@@ -460,26 +460,31 @@ elif section == "Case Study Dashboard":
             f"SELECT States, Years, SUM(Total_count) AS TotalCount FROM aggregated_insurance {where_clause} GROUP BY States, Years",
             tuple(params)
         )
-        st.plotly_chart(
-            px.bar(
+        if not df_state_yearly.empty and "TotalCount" in df_state_yearly.columns:
+            fig = px.bar(
                 df_state_yearly.sort_values(by="TotalCount", ascending=False),
                 x="States", y="TotalCount", color="Years",
                 title="Insurance Transactions by State and Year",
                 barmode="group", color_discrete_sequence=px.colors.sequential.Viridis
             )
-        )
+            st.plotly_chart(fig)
+        else:
+            st.warning("No data available for Insurance Transactions by State and Year.")
 
         df_avg_state = execute_query(
             f"SELECT States, AVG(Total_count) AS AvgCount FROM aggregated_insurance {where_clause} GROUP BY States",
             tuple(params)
         )
-        st.plotly_chart(
-            px.pie(
-                df_avg_state.sort_values(by="AvgCount", ascending=True).head(10),
-                names="States", values="AvgCount",
-                title="Least Penetrated States by Avg Yearly Count"
+        if not df_state_yearly.empty and "TotalCount" in df_state_yearly.columns:
+            st.plotly_chart(
+                px.pie(
+                    df_avg_state.sort_values(by="AvgCount", ascending=True).head(10),
+                    names="States", values="AvgCount",
+                    title="Least Penetrated States by Avg Yearly Count"
+                )
             )
-        )
+        else:
+            st.warning("No data available for Least Penetrated States by Avg Yearly Count.")    
 
     elif case_option == "Transaction Analysis for Market Expansion":
         df_by_type = execute_query(f"""
