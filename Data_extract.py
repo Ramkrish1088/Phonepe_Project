@@ -570,7 +570,7 @@ cursor.execute(create_query4)
 mydb.commit()
 
 for index, row in top_transaction.iterrows():
-    insert_query4 = '''INSERT INTO Top Transaction Table
+    insert_query4 ='''INSERT INTO top_transaction (States, Years, Quarter, Pincodes, Transaction_count, Transaction_amount)
                                                     values(%s,%s,%s,%s,%s,%s)'''
     values = (row["States"],
               row["Years"],
