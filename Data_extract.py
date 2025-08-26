@@ -9,7 +9,7 @@ import mysql.connector
 
 #Aggregate Transactions
 
-path_1=r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/aggregated/transaction/country/india/state/"
+path_1=r"D:/Project_1/Source_Data/pulse/data/aggregated/transaction/country/india/state/"
 aggre_trans_list = os.listdir(path_1)
 
 column_1={"States":[], "Years":[], "Quarter":[], "Transaction_type":[], "Transaction_count":[], "Transaction_amount":[]}
@@ -52,7 +52,7 @@ print(aggre_transaction.head())
 
 # Aggregate Users
 
-path_2=r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/aggregated/user/country/india/state/"
+path_2=r"D:/Project_1/Source_Data/pulse/data/aggregated/user/country/india/state/"
 aggre_user_list = os.listdir(path_2)
 
 column_2 = {"States":[], "Years":[], "Quarter":[], "Brands":[], "Transaction_count":[], "Percentage":[]}
@@ -96,7 +96,7 @@ print("Aggregate User Details :")
 print(aggre_user.head())
 
 # Define path to insurance data
-path_aggre_insurance =r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/aggregated/insurance/country/india/state/"
+path_aggre_insurance =r"D:/Project_1/Source_Data/pulse/data/aggregated/insurance/country/india/state/"
 
 # Initialize column structure
 column_aggre_insurance = {
@@ -165,7 +165,7 @@ print("=========================================================================
 
 # Map Transaction
 
-path_3=r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/map/transaction/hover/country/india/state/"
+path_3=r"D:/Project_1/Source_Data/pulse/data/map/transaction/hover/country/india/state/"
 map_trans_list = os.listdir(path_3)
 
 column_3 = {"States":[], "Years":[], "Quarter":[], "District":[], "Transaction_count":[], "Transaction_amount":[]}
@@ -206,7 +206,7 @@ print(map_transaction.head())
 
 # Map User
 
-path_4=r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/map/user/hover/country/india/state/"
+path_4=r"D:/Project_1/Source_Data/pulse/data/map/user/hover/country/india/state/"
 map_user_list = os.listdir(path_4)
 
 column_4 = {"States":[], "Years":[], "Quarter":[], "Districts":[], "RegisteredUser":[], "AppOpens":[]}
@@ -247,7 +247,7 @@ print(map_user.head())
 
 #map_insurance
 
-path_map_insurance =r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/map/insurance/hover/country/india/state/"
+path_map_insurance =r"D:/Project_1/Source_Data/pulse/data/map/insurance/hover/country/india/state/"
 map_insurance_list = os.listdir(path_map_insurance)
 
 column_map_insurance = {"States": [], "Districts": [], "Years": [], "Quarter": [],
@@ -327,7 +327,7 @@ print("=========================================================================
 
 # Top Transactions
 
-path_5=r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/top/transaction/country/india/state/"
+path_5=r"D:/Project_1/Source_Data/pulse/data/top/transaction/country/india/state/"
 top_trans_list = os.listdir(path_5)
 
 column_5 = {"States":[], "Years":[], "Quarter":[], "Pincodes":[], "Transaction_count":[], "Transaction_amount":[]}
@@ -367,7 +367,7 @@ print("Top Transactions Details :")
 print(top_transaction.head())
 
 # Top User
-path_6 =r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/top/user/country/india/state/"
+path_6 =r"D:/Project_1/Source_Data/pulse/data/top/user/country/india/state/"
 top_user_list = os.listdir(path_6)
 
 column_6 = {"States":[], "Years":[], "Quarter":[], "Pincodes":[], "RegisteredUser":[]}
@@ -407,7 +407,7 @@ print(top_user.head())
 
 
 #top_insurance
-path_top_insurance = r"C:/Users/Vijay/Desktop/DS/Project_1/Source_Data/pulse/data/top/insurance/country/india/state/"
+path_top_insurance = r"D:/Project_1/Source_Data/pulse/data/top/insurance/country/india/state/"
 top_insurance_list = os.listdir(path_top_insurance)
 
 column_top_insurance = {"States": [], "Years": [], "Quarter": [], "Pincodes": [], "Insurance_Category": [],
@@ -471,9 +471,9 @@ print(top_insurance.head())
 print("Top Transactions,Users,Insurance data extracted successfully.")
 print("================================================================================")
 
-host="localhost"
-user="root"
-password="Ramkrish9159981599"
+host="gateway01.ap-southeast-1.prod.aws.tidbcloud.com"
+user="2oE9Ycz1giewiNy.root"
+password="d2aXMti2YOfEfhia"
 database="db_phonepe"
 
 mydb=mysql.connector.connect(
@@ -570,7 +570,7 @@ cursor.execute(create_query4)
 mydb.commit()
 
 for index, row in top_transaction.iterrows():
-    insert_query4 ='''INSERT INTO top_transaction (States, Years, Quarter, Pincodes, Transaction_count, Transaction_amount)
+    insert_query4 = '''INSERT INTO top_transaction (States, Years, Quarter, Pincodes, Transaction_count, Transaction_amount)
                                                     values(%s,%s,%s,%s,%s,%s)'''
     values = (row["States"],
               row["Years"],
@@ -717,12 +717,11 @@ for index, row in aggre_user.iterrows():
     )
     
     cursor.execute(insert_query_agg_user, values)
-    mydb.commit()    
+    mydb.commit()   
 
 
 
 
              
-
 
           
