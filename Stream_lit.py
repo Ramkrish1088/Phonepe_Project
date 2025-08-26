@@ -9,9 +9,9 @@ import json
 # --- DB Connection ---
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="Ramkrish9159981599",
+        host="gateway01.ap-southeast-1.prod.aws.tidbcloud.com",
+        user="2oE9Ycz1giewiNy.root",
+        password="d2aXMti2YOfEfhia",
         database="db_phonepe"
     )
 
